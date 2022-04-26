@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap.css -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- DataTables.css -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css">
+    <!-- Fullpage.css -->
+    <link rel="stylesheet" href="https://unpkg.com/fullpage.js/dist/fullpage.min.css">
+    <!-- External CSS -->
+    <link rel="stylesheet" type="text/css" href="stylesheets/style.css">
+
+    <title>Singapore COVID-19</title>
+</head>
+
+<body>
+    <div id="fullpage">
+        <!-- Section 1 -->
+        <div class="section bg-dark">
+
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                <a class="navbar-brand" href="#">Covid-19 Data</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#section1">COVID-19 Cases <span class="sr-only"></span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#section2">Vaccination Progress</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#section3">Vaccination Centre</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+            <h1 class="section1Title text-light text-center">COVID-19 Cases</h1>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="row">
+                            <div class="col-4">
+                                <div class="row">
+                                    <div class="col-5">
+                                        <p class="text-center text-light">Total Cases:</p>
+                                    </div>
+                                    <div class="col-7">
+                                        <h1 class="totalCases text-danger"></h1>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="col-4">
+                                <div class="row">
+                                    <div class="col-7">
+                                        <p class="text-center text-light">Currently in Hospital:</p>
+                                    </div>
+                                    <div class="col-5">
+                                        <h1 class="totalHospital text-danger"></h1>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <div class="row">
+                                    <div class="col-5">
+                                        <p class="text-center text-light">Total Deaths:</p>
+                                    </div>
+                                    <div class="col-7">
+                                        <h1 class="totalDeath text-danger"></h1>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <h4 class="section1Info text-left text-light">Infomation's:</h4>
+                        <p class="section1Info text-left text-light">The number of Covid-19 cases in Singapore has grown to 257510,
+                            with 2079 new cases reported on 31 Dec.</p>
+                        <p class="section1Info text-left text-light">Of these, 2030 were reported in the community and 40 in the
+                            workers dormitories. The remaining nine cases were imported.</p>
+                        <p class="section1Info text-left text-light">A further 2275 patients were discharged, including 366 seniors
+                            aged above 60. A total of 238909 cases have recovered to date.</p>
+                    </div>
+                    <div class="col-lg-6 text-center text-light">
+                        <h3 class="text-center text-light">Daily Cases</h3>
+                        <div>
+                            <canvas id="dailyChart"></canvas>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+        <!-- Section 2 -->
+        <div class="section bg-dark">
+            <div class="container">
+                <h1 class="section2Title text-light text-center">Vaccination Progress </h1>
+                <div class="row">
+                    <div class="col-md-6">
+                        <h4 class="text-light text-center">9 out of 10 Singaporeans have been vaccinated</h4>
+                        <div class="vacRow row">
+                            <div class="col-2 text-center">
+                                <img class="greenMan" src="images/green-person.svg">
+                            </div>
+                            <div class="col-2 text-center">
+                                <img class="greenMan" src="images/green-person.svg">
+                            </div>
+                            <div class="col-2 text-center">
+                                <img class="greenMan" src="images/green-person.svg">
+                            </div>
+                            <div class="col-2 text-center">
+                                <img class="greenMan" src="images/green-person.svg">
+                            </div>
+                            <div class="col-2 text-center">
+                                <img class="greenMan" src="images/green-person.svg">
+                            </div>
+                        </div>
+                        <div class="vacRow row">
+                            <div class="col-2 text-center">
+                                <img class="greenMan" src="images/green-person.svg">
+                            </div>
+                            <div class="col-2 text-center">
+                                <img class="greenMan" src="images/green-person.svg">
+                            </div>
+                            <div class="col-2 text-center">
+                                <img class="greenMan" src="images/green-person.svg">
+                            </div>
+                            <div class="col-2 text-center">
+                                <img class="greenMan" src="images/green-person.svg">
+                            </div>
+                            <div class="col-2 text-center">
+                                <img class="greenMan" src="images/red-person.svg">
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col-md-6">
+                        <h4 class="section2Info text-light">Infomation's:</h4>
+                        <p class="section2Info text-left text-light">For every 100 people in Singapore, 88 have received their first
+                            dose and 87 are fully vaccinated as at 14 Dec.</p>
+                        <p class="section2Info text-left text-light">In addition, the Health Ministry reported that as at 14 Dec, 96
+                            percent of the eligible population (aged 12 years and above) have completed their full
+                            regime, or received two doses of Covid-19 vaccines.</p>
+                        <p class="section2Info text-left text-light">With new Covid-19 variants such as Omicron surfacing, full
+                            vaccination will have to include booster shots as well.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Section 3 -->
+        <div class="section bg-dark">
+            <div class="container">
+                <h1 class="section3Title text-light text-center">Vaccination Centres</h1>
+                <div class="row">
+                    <div class="col-md-6">
+                        <!-- Start SVG -->
+                        <svg class="sgMap" id="Capa_1" data-name="Capa 1" xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 512.15 321.97">
+                            <defs>
+                                <style>
+                                    .cls-1 {
+                                        fill: #ff3f45;
+                                    }
+
+                                    .cls-2 {
+                                        fill: #faff94;
+                                    }
+                                </style>
+                            </defs>
+                            <path class="cls-1"
+                                d="M491.7,196.6c.4-.4.8-.9,1.2-1.3a6,6,0,0,1,.8-.8c.5-.5.9-1,1.4-1.6.2-.2.3-.4.5-.6a18.39,18.39,0,0,0,1.7-2.2,5.5,5.5,0,0,1,.7-.9c.3-.5.7-.9,1-1.4.2-.3.5-.7.7-1s.6-.9.9-1.4.5-.7.7-1.1a10,10,0,0,0,.8-1.4,6.73,6.73,0,0,1,.7-1.1c.3-.5.5-1,.8-1.5s.4-.7.6-1.1c.4-.8.8-1.7,1.2-2.5.2-.4.3-.7.5-1.1s.5-1.1.7-1.6.3-.9.5-1.3l.6-1.5c.2-.5.3-.9.5-1.4s.3-1,.5-1.5.3-.9.4-1.4.3-1,.4-1.5.3-.9.4-1.4.3-1.2.4-1.7.2-1.1.3-1.6c.1-.7.3-1.3.4-2a.6.6,0,0,1,.1-.4c0-.3.1-.6.1-.9.1-1,.3-1.9.4-2.9a.9.9,0,0,1,.1-.5c.1-1,.2-1.9.3-2.9v-.4c.1-1.1.1-2.2.2-3.3v-3.9c-.2-14.7-10-29.4-25.1-28.8h0c-7.5.3-14.7,3.8-22.1,5.1a210.44,210.44,0,0,1-23.7,3.2c-11.2.7-22.6-.1-30.1-5.4C396.8,107.5,404,83,389.5,73.2c-3.5-2.4-7.3-2.9-11.2-2.7-5.6.3-11.4,2.2-16.9,2.5a14.05,14.05,0,0,1-2.9,0c-10.9-.7-20.6-8.9-28.7-16-14.2-12.4-12.9-33.8-29.1-45.5-.5-.4-1-.7-1.5-1.1-.2-.1-.4-.3-.6-.4a7.46,7.46,0,0,0-1.2-.7,9.22,9.22,0,0,0-.8-.5.1.1,0,0,1-.1-.1.1.1,0,0,1-.1-.1,7.46,7.46,0,0,1-1.2-.7c-.2-.1-.3-.2-.5-.3s-.3-.2-.5-.3-.1-.1-.2-.1l-1.2-.6c-.1-.1-.2-.1-.3-.2a4.88,4.88,0,0,0-.7-.3c-.1,0-.1-.1-.2-.1a6.12,6.12,0,0,0-1.2-.5.1.1,0,0,1-.1-.1,5.94,5.94,0,0,1-.8-.4.35.35,0,0,1-.2-.1c-.4-.2-.8-.3-1.2-.5a10.37,10.37,0,0,0-1-.4c-.1,0-.2-.1-.3-.1-.4-.1-.7-.3-1.1-.4a4.18,4.18,0,0,1-1-.4c-.1,0-.2-.1-.3-.1l-1.1-.3-1.1-.3c-.1,0-.2-.1-.3-.1-.3-.1-.7-.2-1-.3l-1.1-.3c-.1,0-.2-.1-.4-.1a3.55,3.55,0,0,0-1-.2,4.25,4.25,0,0,0-1.1-.2c-.1,0-.3-.1-.4-.1-.3-.1-.7-.1-1-.2s-.7-.1-1.1-.2c-.1,0-.3-.1-.4-.1a3.4,3.4,0,0,0-1-.1,4.1,4.1,0,0,0-1.1-.1.9.9,0,0,1-.5-.1c-.3,0-.7-.1-1-.1s-.7-.1-1-.1h-.5a3.4,3.4,0,0,1-1-.1,2.77,2.77,0,0,1-.9-.1h-5.8a4.1,4.1,0,0,0-1.1.1H259c-.4,0-.9.1-1.3.1h-.8a.9.9,0,0,0-.5.1c-.3,0-.5.1-.8.1-.5.1-1,.1-1.5.2h-.4c-.2,0-.4.1-.6.1H253c-.4.1-.7.1-1.1.2-.2,0-.3.1-.5.1h-.3c-.1,0-.3.1-.4.1a.6.6,0,0,0-.4.1l-1.5.3c-.1,0-.2.1-.4.1h-.1a6.37,6.37,0,0,1-.7.2,2.92,2.92,0,0,1-.9.2c-.1,0-.2.1-.4.1h-.2a8.8,8.8,0,0,0-1.5.5h-.1c-.2.1-.4.1-.6.2s-.2.1-.3.1-.4.1-.6.2a.35.35,0,0,0-.2.1c-.2.1-.3.1-.5.2s-.1,0-.2.1a6.89,6.89,0,0,0-.8.3c-.4.1-.7.3-1.1.4-.1,0-.2.1-.3.1s-.5.2-.7.3-.1,0-.2.1h0c-.1,0-.2.1-.3.1a2,2,0,0,0-.8.4,10.37,10.37,0,0,1-1,.4h-.1c-.1.1-.3.1-.4.2-.3.2-.7.3-1,.5a4.05,4.05,0,0,0-.9.5.76.76,0,0,1-.4.2,4.67,4.67,0,0,1-1,.5H233a2.09,2.09,0,0,0-.6.4.76.76,0,0,1-.4.2h0l-.1.1c-.4.3-.9.5-1.3.8a4.05,4.05,0,0,1-.9.5,7.1,7.1,0,0,0-1.4,1c-.1,0-.1.1-.2.1a1,1,0,0,0-.5.4,8.34,8.34,0,0,1-1.2.8,1.76,1.76,0,0,0-.5.4,3,3,0,0,1-.7.5,2.18,2.18,0,0,0-.5.4,8.74,8.74,0,0,1-1,.8h0a2.7,2.7,0,0,0-.8.7c-9.6,8.2-16.9,19.3-27.1,26.6a33,33,0,0,1-18.1,6.5h-2.1a2.2,2.2,0,0,1-.8-.1c-.4,0-.8-.1-1.2-.1s-.5-.1-.8-.1-.8-.1-1.3-.2a6.37,6.37,0,0,1-.7-.2c-.4-.1-.8-.2-1.3-.3-.2-.1-.5-.1-.7-.2a6.94,6.94,0,0,1-1.3-.5l-.6-.3a9.14,9.14,0,0,1-1.4-.7c-.2-.1-.3-.2-.5-.2-.6-.3-1.2-.7-1.9-1.1-9.7-6.4-15-14.3-26.9-16.9-.4-.1-.7-.1-1.1-.2a14.92,14.92,0,0,0-2.1-.2,19.07,19.07,0,0,0-5.3.5c-.7.2-1.4.3-2.1.5-.2.1-.4.1-.6.2-.7.2-1.3.4-2,.6-.2.1-.3.1-.5.2-.5.2-1.1.4-1.6.6a1.69,1.69,0,0,1-.5.2c-.6.3-1.3.6-1.9.9-.2.1-.3.2-.5.3-.6.3-1.1.6-1.7.9-.1.1-.2.1-.3.2-.6.4-1.3.8-1.9,1.2-.1.1-.3.2-.4.3a32.82,32.82,0,0,0-3.8,2.7c-.1.1-.2.1-.3.2-.6.5-1.2,1-1.9,1.5l-.1.1c-.6.5-1.1,1-1.7,1.5-.1.1-.2.2-.3.2s-.2.1-.2.2h0C91.5,52.9,80.9,73.1,72.6,88.4c-13.1,23.9-26.2,48-38.3,72.5v.1c-12.5,25.5-23.9,51.5-32.9,78.5-1,3-2,6.5-.8,9.4,1,2.4,3.3,3.9,5.5,5.1a58,58,0,0,0,24.3,7.2c5.2.4,9.3-4.6,8.2-10a14.26,14.26,0,0,1,.3-6.8c1.8-6,7.8-10.1,13.6-9.4,7.8.9,13.5,9.2,21.3,9.9,5.3.5,10.3-2.6,15.1-5.1,21.1-10.6,45.6-9,68.9-7.2,10,.8,20.1,1.6,29.4,5.5,9.1,3.9,17,10.5,24.6,17.1,15.7,13.5,31.5,27,45.5,42.4,3.4,3.7,7,7.7,10.7,11.3,5.4,5.5,8.9,8.5,15.2,11.7a.1.1,0,0,1,.1.1,9.15,9.15,0,0,0,6.2,1,10,10,0,0,0,4.3-1.7c.1-.1.2-.1.2-.2s.2-.1.2-.2a14.21,14.21,0,0,0,2.4-2.5,11.63,11.63,0,0,0,2-5.1,29.68,29.68,0,0,1,8.1-15.8A94.2,94.2,0,0,1,320,285.3c12.8-8.9,27.7-16,39.9-24.1,3.8-2.5,7.6-4.8,11.4-7,26.3-15,54.8-23.5,82.9-34.1.3-.1.7-.3,1-.4a12.2,12.2,0,0,0,1.7-.7c.4-.2.8-.3,1.3-.5l1.5-.6c.4-.2.8-.4,1.3-.6a10.09,10.09,0,0,0,1.5-.7l1.2-.6a10.93,10.93,0,0,0,1.5-.8c.4-.2.7-.4,1.1-.6l1.8-.9c.3-.1.5-.3.8-.4.8-.5,1.7-.9,2.5-1.4.3-.2.5-.3.8-.5.6-.3,1.2-.7,1.7-1a8.79,8.79,0,0,1,1-.6,13,13,0,0,0,1.5-1,6.07,6.07,0,0,0,1-.7c.5-.3,1-.7,1.5-1a5.5,5.5,0,0,0,.9-.7c.5-.4,1-.8,1.6-1.2.3-.2.5-.4.8-.6.8-.6,1.5-1.2,2.2-1.8.1-.1.3-.2.4-.4l1.8-1.5c.3-.2.5-.5.8-.7.4-.4.9-.8,1.3-1.2s.6-.5.9-.8l1.2-1.2C491.1,197.1,491.4,196.9,491.7,196.6Z"
+                                transform="translate(-0.05 0.1)" />
+                            <circle class="cls-2 Bedok" cx="417.71" cy="196" r="8" />
+                            <circle class="cls-2 Pasir" cx="432.27" cy="141.25" r="8" />
+                            <circle class="cls-2 Geylang" cx="344.95" cy="220.51" r="8" />
+                            <circle class="cls-2 Marine" cx="339.95" cy="255.74" r="8" />
+                            <circle class="cls-2 Hougang" cx="349.95" cy="136.25" r="8" />
+                            <circle class="cls-2 Batok" cx="167.25" cy="141.25" r="8" />
+                            <circle class="cls-2 Jurong" cx="132.01" cy="160.98" r="8" />
+                            <circle class="cls-2 Pioneer" cx="90.65" cy="186" r="8" />
+                            <circle class="cls-2 Choa" cx="192.93" cy="114.8" r="8" />
+                            <circle class="cls-2 Merah" cx="256.07" cy="240.83" r="8" />
+                            <circle class="cls-2 Outram" cx="294.37" cy="278.36" r="8" />
+                            <circle class="cls-2 Clementi" cx="210.88" cy="196" r="8" />
+                        </svg>
+                        <!-- End SVG -->
+                    </div>
+                    <div class="sgTable col-md-6 p-1 bg-light rounded">
+                        <table class="polyclinicTable table table-striped table-light">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Address</td>
+                                    <td>Vaccine Type</td>
+                                    <td>Phone</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Bedok Polyclinic</td>
+                                    <td>11 Bedok North Street 1 Heartbeat@Bedok #02-01, #03-01, Singapore 469662</td>
+                                    <td>Pfizer</td>
+                                    <td>6343 1121</td>
+                                </tr>
+                                <tr>
+                                    <td>Bukit Batok Polyclinic</td>
+                                    <td>50 Bukit Batok West Avenue 3, Singapore 659164</td>
+                                    <td>Moderna</td>
+                                    <td>6343 1122</td>
+                                </tr>
+                                <tr>
+                                    <td>Bukit Merah Polyclinic</td>
+                                    <td>162 Bukit Merah Central Level 4, Singapore 150163</td>
+                                    <td>Pfizer</td>
+                                    <td>6343 1123</td>
+                                </tr>
+                                <tr>
+                                    <td>Choa Chu Kang Polyclinic</td>
+                                    <td>2 Teck Whye Crescent, Singapore 688846</td>
+                                    <td>Moderna</td>
+                                    <td>6343 1124</td>
+                                </tr>
+                                <tr>
+                                    <td>Clementi Polyclinic</td>
+                                    <td>451 Clementi Avenue 3, Singapore 120451</td>
+                                    <td>Pfizer</td>
+                                    <td>6343 1125</td>
+                                </tr>
+                                <tr>
+                                    <td>Geylang Polyclinic</td>
+                                    <td>21 Geylang East Central, Singapore 389707</td>
+                                    <td>Pfizer</td>
+                                    <td>6343 1126</td>
+                                </tr>
+                                <tr>
+                                    <td>Hougang Polyclinic</td>
+                                    <td>89 Hougang Avenue 4, Singapore 538829</td>
+                                    <td>Pfizer</td>
+                                    <td>6765 1121</td>
+                                </tr>
+                                <tr>
+                                    <td>Jurong Polyclinic</td>
+                                    <td>190 Jurong East Avenue 1, Singapore 609788</td>
+                                    <td>Pfizer</td>
+                                    <td>6765 1122</td>
+                                </tr>
+                                <tr>
+                                    <td>Marine Parade Polyclinic</td>
+                                    <td>80 Marine Parade Central, Singapore 440080</td>
+                                    <td>Pfizer</td>
+                                    <td>6765 1123</td>
+                                </tr>
+                                <tr>
+                                    <td>Outram Polyclinic</td>
+                                    <td>3 Second Hospital Avenue, #02-00 Health Promotion Board Building, Singapore
+                                        168937</td>
+                                    <td>Comirnaty</td>
+                                    <td>6765 1124</td>
+                                </tr>
+                                <tr>
+                                    <td>Pasir Ris Polyclinic</td>
+                                    <td>1 Pasir Ris Drive 4, Singapore 519457</td>
+                                    <td>Comirnaty</td>
+                                    <td>6765 1125</td>
+                                </tr>
+                                <tr>
+                                    <td>Pioneer Polyclinic</td>
+                                    <td>26 Jurong West Street 61, Singapore 648201</td>
+                                    <td>Moderna</td>
+                                    <td>6765 1126</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <!-- Footer -->
+            <footer class="section3Footer footer page-footer text-light">
+                <!-- Copyright -->
+                <div class="footer-copyright text-center py-3">© 2020 Copyright: Hao Wen</div>
+            </footer>
+        </div>
+    </div>
+
+
+
+    <!-- Bootstrap.js -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- jQuery.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <!-- DataTables.js -->
+    <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.js"></script>
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Popper and Tippy.js -->
+    <script src="https://unpkg.com/@popperjs/core@2"></script>
+    <script src="https://unpkg.com/tippy.js@6"></script>
+    <!-- Fullpage.js -->
+    <script src="https://unpkg.com/fullpage.js/dist/fullpage.min.js"></script>
+    <!-- Anime.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    <!-- External JS -->
+    <script src="script/script.js"></script>
+
+</body>
+
+</html>
